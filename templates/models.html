@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Model Performance - DisasterAI</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <main class="container">
+        <h2><i class="fa-solid fa-microchip"></i> ML Model Evaluation & Performance</h2>
+
+        <div class="model-select-bar">
+            <label>Select Disaster Target:</label>
+            <select id="modelDisasterSelect" onchange="loadModelMetrics()">
+                <option value="flood">Flood</option>
+                <option value="earthquake">Earthquake</option>
+                <option value="cyclone">Cyclone</option>
+                <option value="wildfire">Wildfire</option>
+                <option value="landslide">Landslide</option>
+                <option value="drought">Drought</option>
+                <option value="tsunami">Tsunami</option>
+            </select>
+        </div>
+
+        <div class="table-card">
+            <h3>Algorithm Metrics Comparison</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Algorithm</th>
+                        <th>Accuracy</th>
+                        <th>Precision</th>
+                        <th>Recall</th>
+                        <th>F1 Score</th>
+                        <th>ROC-AUC</th>
+                        <th>Role</th>
+                    </tr>
+                </thead>
+                <tbody id="metricsTableBody"></tbody>
+            </table>
+        </div>
+
+        <div class="grid-2col">
+            <div class="chart-card">
+                <h3>ROC Curves</h3>
+                <canvas id="rocCurveChart"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Confusion Matrix (Selected: Random Forest)</h3>
+                <div id="confusionMatrixContainer" class="cm-container"></div>
+            </div>
+        </div>
+    </main>
+    <script src="/static/js/app.js"></script>
+    <script src="/static/js/models.js"></script>
+</body>
+</html>

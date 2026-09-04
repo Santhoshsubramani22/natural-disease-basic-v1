@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Predict Risk - DisasterAI</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <main class="container">
+        <h2><i class="fa-solid fa-bolt"></i> Disaster Risk Prediction</h2>
+        
+        <div class="grid-2col">
+            <form id="predictionForm" class="form-card">
+                <div class="form-group">
+                    <label>Disaster Type</label>
+                    <select id="disasterType" onchange="renderDynamicInputs()">
+                        <option value="Flood">Flood</option>
+                        <option value="Earthquake">Earthquake</option>
+                        <option value="Cyclone">Cyclone</option>
+                        <option value="Wildfire">Wildfire</option>
+                        <option value="Landslide">Landslide</option>
+                        <option value="Drought">Drought</option>
+                        <option value="Tsunami">Tsunami</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Prediction Algorithm</label>
+                    <select id="algorithm">
+                        <option value="random_forest">Random Forest (Primary Model)</option>
+                        <option value="xgboost">XGBoost Classifier</option>
+                        <option value="decision_tree">Decision Tree Classifier</option>
+                        <option value="logistic_regression">Logistic Regression (Baseline)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <button type="button" class="btn btn-outline" onclick="getUserLocation()">
+                        <i class="fa-solid fa-location-crosshairs"></i> Use My Location
+                    </button>
+                    <span id="locationStatus" class="status-text"></span>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Latitude</label>
+                        <input type="number" step="any" id="latitude" value="12.9165" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Longitude</label>
+                        <input type="number" step="any" id="longitude" value="79.1325" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Location Name</label>
+                    <input type="text" id="location_name" value="Vellore Region" required>
+                </div>
+
+                <div id="dynamicInputs"></div>
+
+                <button type="submit" class="btn btn-primary btn-block">
+                    <i class="fa-solid fa-calculator"></i> Run Risk Prediction
+                </button>
+            </form>
+
+            <div class="results-card">
+                <h3>Prediction Results</h3>
+                <div id="predictionOutput" class="output-placeholder">
+                    <p><i class="fa-solid fa-circle-info"></i> Fill parameters and click predict to see model outputs.</p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="factorChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="/static/js/app.js"></script>
+    <script src="/static/js/prediction.js"></script>
+</body>
+</html>

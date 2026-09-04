@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Analytics - DisasterAI</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <main class="container">
+        <h2><i class="fa-solid fa-chart-pie"></i> Historical & Multi-Parameter Analytics</h2>
+
+        <div class="grid-2col">
+            <div class="chart-card">
+                <h3>Dataset Disaster Occurrence Frequency</h3>
+                <canvas id="disasterFreqChart"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Rainfall vs Flood Occurrence</h3>
+                <canvas id="rainfallFloodChart"></canvas>
+            </div>
+        </div>
+    </main>
+    <script src="/static/js/app.js"></script>
+    <script src="/static/js/analytics.js"></script>
+</body>
+</html>

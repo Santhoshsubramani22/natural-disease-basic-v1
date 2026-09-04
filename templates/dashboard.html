@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - DisasterAI</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <main class="container">
+        <h2><i class="fa-solid fa-chart-line"></i> Dashboard</h2>
+        
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <i class="fa-solid fa-list-check"></i>
+                <div>
+                    <h3 id="statTotalPredictions">0</h3>
+                    <p>Total Predictions</p>
+                </div>
+            </div>
+            <div class="metric-card alert-card">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <div>
+                    <h3 id="statHighRisk">0</h3>
+                    <p>High Risk Predictions</p>
+                </div>
+            </div>
+            <div class="metric-card warning-card">
+                <i class="fa-solid fa-bell"></i>
+                <div>
+                    <h3 id="statActiveAlerts">0</h3>
+                    <p>Active Alerts</p>
+                </div>
+            </div>
+            <div class="metric-card info-card">
+                <i class="fa-solid fa-gauge-high"></i>
+                <div>
+                    <h3 id="statAvgScore">0</h3>
+                    <p>Average Risk Score</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-charts">
+            <div class="chart-card">
+                <h3>Risk Level Distribution</h3>
+                <canvas id="riskDistChart"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Recent Activity Table</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Disaster</th>
+                            <th>Location</th>
+                            <th>Risk Score</th>
+                            <th>Alert Level</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recentPredictionsBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <script src="/static/js/app.js"></script>
+    <script src="/static/js/dashboard.js"></script>
+</body>
+</html>

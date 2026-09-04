@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DisasterAI - AI Multi-Disaster Prediction Platform</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><i class="fa-solid fa-shield-halved"></i> DisasterAI</div>
+        <div class="nav-links">
+            <a href="/" class="active"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="/dashboard"><i class="fa-solid fa-chart-line"></i> Dashboard</a>
+            <a href="/prediction"><i class="fa-solid fa-bolt"></i> Predict Risk</a>
+            <a href="/map"><i class="fa-solid fa-map-location-dot"></i> Risk Map</a>
+            <a href="/analytics"><i class="fa-solid fa-chart-pie"></i> Analytics</a>
+            <a href="/models"><i class="fa-solid fa-microchip"></i> Models</a>
+            <a href="/alerts"><i class="fa-solid fa-bell"></i> Alerts</a>
+            <a href="/history"><i class="fa-solid fa-clock-rotate-left"></i> History</a>
+        </div>
+        <div class="lang-selector">
+            <select id="languageSelect" onchange="changeLanguage(this.value)">
+                <option value="en">English</option>
+                <option value="ta">தமிழ்</option>
+                <option value="hi">हिन्दी</option>
+                <option value="te">తెలుగు</option>
+                <option value="ml">മലയാളം</option>
+                <option value="kn">ಕನ್ನಡ</option>
+                <option value="bn">বাংলা</option>
+            </select>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1 data-i18n="app_title">DisasterAI</h1>
+            <p class="subtitle" data-i18n="subtitle">Predict. Understand. Prepare.</p>
+            <p class="desc">An AI-powered multi-disaster risk prediction and early-warning support platform using machine learning to evaluate multi-parameter risk scores.</p>
+            <div class="hero-buttons">
+                <a href="/prediction" class="btn btn-primary"><i class="fa-solid fa-calculator"></i> Predict Risk</a>
+                <a href="/map" class="btn btn-secondary"><i class="fa-solid fa-map"></i> View Risk Map</a>
+                <a href="/analytics" class="btn btn-outline"><i class="fa-solid fa-chart-column"></i> Explore Analytics</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="disaster-cards">
+        <h2>Supported Disaster Types</h2>
+        <div class="card-grid">
+            <div class="card"><i class="fa-solid fa-water icon-flood"></i><h3>Flood</h3><p>Evaluates 24h/7d rainfall, river levels, soil saturation, and elevation.</p></div>
+            <div class="card"><i class="fa-solid fa-house-crack icon-earthquake"></i><h3>Earthquake</h3><p>Analyzes magnitude, depth, fault line proximity, and ground acceleration.</p></div>
+            <div class="card"><i class="fa-solid fa-hurricane icon-cyclone"></i><h3>Cyclone</h3><p>Monitors wind gust speeds, central pressure, and storm surge levels.</p></div>
+            <div class="card"><i class="fa-solid fa-fire icon-wildfire"></i><h3>Wildfire</h3><p>Evaluates vegetation dryness, fire weather index, and temperature anomalies.</p></div>
+            <div class="card"><i class="fa-solid fa-hill-rockslide icon-landslide"></i><h3>Landslide</h3><p>Calculates slope degree, terrain roughness, and soil saturation.</p></div>
+            <div class="card"><i class="fa-solid fa-sun icon-drought"></i><h3>Drought</h3><p>Assesses precipitation anomalies, drought indices, and groundwater levels.</p></div>
+            <div class="card"><i class="fa-solid fa-wave-square icon-tsunami"></i><h3>Tsunami</h3><p>Evaluates undersea seismic magnitude, fault distance, and coastal sea level anomalies.</p></div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p data-i18n="disclaimer">Disclaimer: This system provides AI-based disaster-risk estimates for educational and decision-support purposes. It does not replace official emergency authorities.</p>
+    </footer>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

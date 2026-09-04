@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Risk Map - DisasterAI</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>#map { height: 600px; width: 100%; border-radius: 8px; }</style>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <main class="container">
+        <h2><i class="fa-solid fa-map-location-dot"></i> Interactive Disaster Risk Map</h2>
+
+        <div class="map-controls">
+            <label>Disaster:</label>
+            <select id="mapDisasterFilter" onchange="updateMapData()">
+                <option value="All">All Types</option>
+                <option value="Flood">Flood</option>
+                <option value="Earthquake">Earthquake</option>
+                <option value="Cyclone">Cyclone</option>
+                <option value="Wildfire">Wildfire</option>
+                <option value="Landslide">Landslide</option>
+                <option value="Drought">Drought</option>
+                <option value="Tsunami">Tsunami</option>
+            </select>
+
+            <label>Risk Level:</label>
+            <select id="mapRiskFilter" onchange="updateMapData()">
+                <option value="All">All Levels</option>
+                <option value="LOW">Low</option>
+                <option value="MEDIUM">Medium</option>
+                <option value="HIGH">High</option>
+                <option value="VERY HIGH">Very High</option>
+            </select>
+        </div>
+
+        <div id="map"></div>
+    </main>
+    <script src="/static/js/app.js"></script>
+    <script src="/static/js/map.js"></script>
+    {% if google_maps_api_key %}
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initMap" async defer></script>
+    {% else %}
+    <script>
+        document.getElementById('map').innerHTML = '<div class="map-warning"><p><i class="fa-solid fa-triangle-exclamation"></i> Google Maps API key is missing. Set GOOGLE_MAPS_API_KEY in .env to activate maps.</p></div>';
+    </script>
+    {% endif %}
+</body>
+</html>

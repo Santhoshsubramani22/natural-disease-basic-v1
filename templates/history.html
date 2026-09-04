@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction History - DisasterAI</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <main class="container">
+        <h2><i class="fa-solid fa-clock-rotate-left"></i> Prediction Records History</h2>
+        <div class="table-card">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Disaster</th>
+                        <th>Location</th>
+                        <th>Probability</th>
+                        <th>Risk Score</th>
+                        <th>Risk Level</th>
+                        <th>Model</th>
+                    </tr>
+                </thead>
+                <tbody id="historyTableBody"></tbody>
+            </table>
+        </div>
+    </main>
+    <script src="/static/js/app.js"></script>
+    <script src="/static/js/history.js"></script>
+</body>
+</html>
